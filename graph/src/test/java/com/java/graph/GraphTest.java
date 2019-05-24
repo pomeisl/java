@@ -1,4 +1,4 @@
-package com.java.graph.collection;
+package com.java.graph;
 
 import org.junit.Before;
 import org.junit.Test;

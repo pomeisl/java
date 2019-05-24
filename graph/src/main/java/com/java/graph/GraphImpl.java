@@ -1,4 +1,4 @@
-package com.java.graph.collection;
+package com.java.graph;
 
 import java.util.*;
 import java.util.stream.Collectors;
