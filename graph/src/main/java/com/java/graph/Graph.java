@@ -12,4 +12,8 @@ public interface Graph<E> {
     void removeEdge(E e1, E e2);
 
     Collection<E> getAdjacencyVertices(E e);
+
+    Collection<E> depthFirstTraversal(E root);
+
+    Collection<E> breadthTraversal(E root);
 }

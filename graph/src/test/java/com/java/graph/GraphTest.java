@@ -3,6 +3,7 @@ package com.java.graph;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -73,6 +74,20 @@ public class GraphTest {
 
         assertThat(vertices1).doesNotContain("node2");
         assertThat(vertices2).doesNotContain("node1");
+    }
+
+    @Test
+    public void givenGraph_DepthFirstTraversal_CorrectOrder() {
+        Collection<String> result = graph.depthFirstTraversal("node1");
+
+        assertThat(result.toString()).isEqualTo(Arrays.asList("node1", "node4", "node2", "node3").toString());
+    }
+
+    @Test
+    public void givenGraph_BreadthFirstTraversal_CorrectOrder() {
+        Collection<String> result = graph.breadthTraversal("node1");
+
+        assertThat(result.toString()).isEqualTo(Arrays.asList("node1", "node2", "node4", "node3").toString());
     }
 
 }
