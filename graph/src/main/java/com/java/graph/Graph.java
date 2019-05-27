@@ -15,5 +15,5 @@ public interface Graph<E> {
 
     Collection<E> depthFirstTraversal(E root);
 
-    Collection<E> breadthTraversal(E root);
+    Collection<E> breadthFirstTraversal(E root);
 }

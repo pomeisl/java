@@ -85,7 +85,7 @@ public class GraphTest {
 
     @Test
     public void givenGraph_BreadthFirstTraversal_CorrectOrder() {
-        Collection<String> result = graph.breadthTraversal("node1");
+        Collection<String> result = graph.breadthFirstTraversal("node1");
 
         assertThat(result.toString()).isEqualTo(Arrays.asList("node1", "node2", "node4", "node3").toString());
     }

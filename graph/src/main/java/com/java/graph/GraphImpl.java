@@ -54,7 +54,7 @@ public class GraphImpl<E> implements Graph<E> {
     }
 
     @Override
-    public Collection<E> breadthTraversal(E root) {
+    public Collection<E> breadthFirstTraversal(E root) {
         Collection<E> visited = new ArrayList<>();
         Queue<E> queue = new LinkedList<>();
 
