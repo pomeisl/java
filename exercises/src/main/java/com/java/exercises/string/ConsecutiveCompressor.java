@@ -3,7 +3,7 @@ package com.java.exercises.string;
 public class ConsecutiveCompressor {
 
     /**
-     * this method compress a string with removing character consecutive elements.
+     * this method compress consecutive characters into one and put the number of duplication after the compressed characters
      *
      * @param s
      * @return
