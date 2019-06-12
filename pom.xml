@@ -12,6 +12,7 @@
         <module>eventbus</module>
         <module>graph</module>
         <module>exercises</module>
+        <module>patterns</module>
     </modules>
 
 
