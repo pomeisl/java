@@ -1,4 +1,4 @@
-package com.java.patterns.memento;
+package com.java.patterns.behavioral.memento;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,7 +1,7 @@
-package com.pomeisl.patterns.memento;
+package com.pomeisl.patterns.behavioral.memento;
 
-import com.java.patterns.memento.Memento;
-import com.java.patterns.memento.Originator;
+import com.java.patterns.behavioral.memento.Memento;
+import com.java.patterns.behavioral.memento.Originator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

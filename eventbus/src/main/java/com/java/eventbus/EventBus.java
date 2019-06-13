@@ -2,10 +2,7 @@ package com.java.eventbus;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class EventBus {
 
@@ -23,7 +20,7 @@ public class EventBus {
         }
     }
 
-    private Map<Class<?>, EventHandler> handlers = new HashMap<>();
+    private Map<Class<?>, List<EventHandler>> handlers = new HashMap<>();
 
     /**
      * @param listener
@@ -34,7 +31,12 @@ public class EventBus {
                 .filter(method -> method.isAnnotationPresent(ListenerMethod.class))
                 .map(method -> new EventHandler(listener, method))
                 .forEach(handler -> Arrays.stream(handler.handlerMethod.getParameterTypes())
-                        .forEach(clazz -> handlers.put(clazz, handler)));
+                        .forEach(clazz -> {
+                            if (!handlers.containsKey(clazz)) {
+                                handlers.put(clazz, new LinkedList<>());
+                            }
+                            handlers.get(clazz).add(handler);
+                        }));
     }
 
     /**
@@ -42,10 +44,12 @@ public class EventBus {
      * @throws RuntimeException if the event publishing isn't successful.
      */
     public void emit(Object event) throws RuntimeException {
-        EventHandler eventHandler = handlers.get(event.getClass());
+        List<EventHandler> eventHandlers = handlers.get(event.getClass());
 
         try {
-            eventHandler.handleEvent(event);
+            for (EventHandler handler : eventHandlers) {
+                handler.handleEvent(event);
+            }
         } catch (InvocationTargetException | IllegalAccessException e) {
             throw new RuntimeException("Event publishing wasn't successful.", e);
         }

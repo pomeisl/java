@@ -1,4 +1,4 @@
-package com.java.patterns.memento;
+package com.java.patterns.behavioral.memento;
 
 public class Originator {
 
